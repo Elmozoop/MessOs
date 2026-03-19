@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "./styles/colors.css";
+
+@theme {
+  /* Overrides for existing generic aliases used in components */
+  --color-primary-50: var(--color-sage-glass);
+  --color-primary-100: var(--color-sage-glass);
+  --color-primary-500: var(--color-sage);
+  --color-primary-600: var(--color-sage-dark);
+  --color-primary-900: #1A4024;
+
+  --color-secondary-50: var(--color-sky-glass);
+  --color-secondary-500: var(--color-sky);
+  --color-secondary-900: var(--color-sky-dark);
+  
+  --color-waste-light: var(--color-blush-glass);
+  --color-waste-main: var(--color-blush);
+}
+
+@layer base {
+  :root {
+    --background: #f8f9fc; /* Very light slate gray/blue for that minimal SaaS feel */
+    --foreground: #2d3748;
+    --card: #ffffff;
+    --card-foreground: #2d3748;
+    --border: rgba(0, 0, 0, 0.04); /* Extremely light borders, relying on shadow instead */
+    --ring: var(--color-sage);
+    --radius: 1.5rem;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .dark {
+    --background: #161722; /* Deep Navy from reference */
+    --foreground: #f1f5f9;
+    --card: rgba(30, 31, 43, 0.7); /* Match card contrast from reference */
+    --card-foreground: #f1f5f9;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased transition-colors duration-300 min-h-screen relative overflow-x-hidden;
+  }
+  
+  /* 4-stop pastel canvas gradient mapping to MessOS layers */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: 
+      radial-gradient(ellipse at 0% 0%, rgba(181, 201, 183, 0.45) 0%, transparent 50%),   /* Sage */
+      radial-gradient(ellipse at 100% 0%, rgba(189, 213, 234, 0.45) 0%, transparent 50%), /* Sky Mist */
+      radial-gradient(ellipse at 100% 100%, rgba(208, 196, 232, 0.45) 0%, transparent 50%), /* Lavender Haze */
+      radial-gradient(ellipse at 0% 100%, rgba(245, 201, 160, 0.45) 0%, transparent 50%);  /* Peach Dusk */
+    z-index: -1;
+    pointer-events: none;
+    animation: shift 20s ease-in-out infinite alternate;
+  }
+  
+  .dark body::before {
+    background: 
+      radial-gradient(ellipse at 0% 0%, rgba(181, 201, 183, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 0%, rgba(189, 213, 234, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 100%, rgba(208, 196, 232, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 0% 100%, rgba(245, 201, 160, 0.15) 0%, transparent 50%);
+  }
+
+  /* Noise texture overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' op='%23000000' opacity='0.05'/%3E%3C/svg%3E");
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.25;
+  }
+
+  .dark body::after {
+    opacity: 0.15;
+  }
+
+  @keyframes shift {
+    0% { transform: scale(1) translate(0, 0); }
+    33% { transform: scale(1.1) translate(2%, 2%); }
+    66% { transform: scale(0.9) translate(-2%, 2%); }
+    100% { transform: scale(1) translate(0, 0); }
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[var(--card)] backdrop-blur-[18px] border border-[var(--border)] shadow-[0_8px_32px_rgba(0,0,0,0.04)];
+  }
+  
+  .glass-panel {
+    @apply bg-[var(--card)] backdrop-blur-[18px] border border-[var(--border)] shadow-lg;
+  }
+  
+  /* Color-specific glass utilities */
+  .glass-sage {
+    @apply backdrop-blur-[18px] border border-[var(--border)] shadow-sm text-[#2c402e];
+    background-color: var(--color-sage-glass);
+  }
+  
+  .glass-rose {
+    @apply backdrop-blur-[18px] border border-[var(--border)] shadow-sm text-[#5a2a2a];
+    background-color: var(--color-rose-glass);
+  }
+  
+  .glass-sky {
+    @apply backdrop-blur-[18px] border border-[var(--border)] shadow-sm text-[#2a455a];
+    background-color: var(--color-sky-glass);
+  }
+  
+  .glass-gold {
+    @apply backdrop-blur-[18px] border border-[var(--border)] shadow-sm text-[#5c4b18];
+    background-color: var(--color-gold-glass);
+  }
+  
+  .glass-lavender {
+    @apply backdrop-blur-[18px] border border-[var(--border)] shadow-sm text-[#3b2a5a];
+    background-color: var(--color-lavender-glass);
+  }
+  
+  .glass-peach {
+    @apply backdrop-blur-[18px] border border-[var(--border)] shadow-sm text-[#5a3616];
+    background-color: var(--color-peach-glass);
+  }
+
+  .dark .glass-sage { @apply text-white; }
+  .dark .glass-rose { @apply text-white; }
+  .dark .glass-sky { @apply text-white; }
+  .dark .glass-gold { @apply text-white; }
+  .dark .glass-lavender { @apply text-white; }
+  .dark .glass-peach { @apply text-white; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(248, 250, 252, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
