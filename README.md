@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍽️ Smart Mess
+#  Smart Mess
 **Hostel Food Waste Management System**
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
@@ -13,10 +13,10 @@
 
 ---
 
-## 🚀 The Vision
+##  The Vision
 Every day, hostels waste incredible amounts of food simply because they don't know exactly how many students will be eating. **Smart Mess** solves this by providing a gorgeous, seamless interface for students to confirm their meals, giving mess staff the exact data they need to cook the right amount.
 
-## ✨ Core Features
+##  Core Features
 
 | Feature | Description |
 | :--- | :--- |
@@ -27,7 +27,7 @@ Every day, hostels waste incredible amounts of food simply because they don't kn
 
 ---
 
-## 🛠️ Tech Stack 
+##  Tech Stack 
 
 - **Frontend Framework:** React 18 + Vite ⚡
 - **Design System:** Custom Modern CSS (Glassmorphism, CSS Variables, Deep Dark Theme) 💎
@@ -39,7 +39,7 @@ Every day, hostels waste incredible amounts of food simply because they don't kn
 
 Follow these steps to get your local development environment up and running beautifully in seconds.
 
-### 1️⃣ Clone & Setup
+###  Clone & Setup
 ```bash
 git clone https://github.com/your-username/smart-mess.git
 cd smart-mess/frontend
