@@ -1,0 +1,264 @@
+/* =============================================================
+   YIELD — Design System Color Tokens
+   Bright Pastel Glassmorphism · Full Web Platform
+   ============================================================= */
+
+/* ─────────────────────────────────────────────
+   1. CSS CUSTOM PROPERTIES  (use anywhere in CSS)
+   ───────────────────────────────────────────── */
+:root {
+  /* ── Brand Core ── */
+  --color-sage: #8fc99a;
+  --color-sage-light: #c8edd0;
+  --color-sage-dark: #5ea872;
+  --color-sage-glass: rgba(143, 201, 154, 0.22);
+
+  --color-blush: #f0a0a0;
+  --color-blush-light: #fad4d4;
+  --color-blush-dark: #d96868;
+  --color-blush-glass: rgba(240, 160, 160, 0.22);
+
+  --color-sky: #82c4f0;
+  --color-sky-light: #c2e4fa;
+  --color-sky-dark: #4a9ed8;
+  --color-sky-glass: rgba(130, 196, 240, 0.22);
+
+  --color-butter: #f5d060;
+  --color-butter-light: #fff0aa;
+  --color-butter-dark: #d4a800;
+  --color-butter-glass: rgba(245, 208, 96, 0.22);
+
+  --color-lavender: #b8a4e8;
+  --color-lavender-light: #e0d4ff;
+  --color-lavender-dark: #8a6ed4;
+  --color-lavender-glass: rgba(184, 164, 232, 0.22);
+
+  --color-peach: #f8a870;
+  --color-peach-light: #ffd8b8;
+  --color-peach-dark: #e07830;
+  --color-peach-glass: rgba(248, 168, 112, 0.22);
+
+  /* ── Neutrals ── */
+  --color-white: #ffffff;
+  --color-off-white: #fafafa;
+  --color-surface: rgba(255, 255, 255, 0.6);
+  --color-surface-strong: rgba(255, 255, 255, 0.82);
+
+  /* ── Text ── */
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #4a4a6a;
+  --color-text-muted: #8a8aaa;
+  --color-text-inverse: #ffffff;
+
+  /* ── Borders ── */
+  --color-border: rgba(255, 255, 255, 0.85);
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+
+  /* ── Backgrounds ── */
+  --color-bg-canvas: linear-gradient(
+    140deg,
+    #ffffff 0%,
+    #f0faf2 20%,
+    #fff0f5 40%,
+    #eef5ff 60%,
+    #fefae8 80%,
+    #f5eeff 100%
+  );
+
+  /* ── Gradients ── */
+  --gradient-hero: linear-gradient(135deg, #8fc99a 0%, #82c4f0 100%);
+  --gradient-esg: linear-gradient(135deg, #f0a0a0 0%, #b8a4e8 100%);
+  --gradient-revenue: linear-gradient(135deg, #f5d060 0%, #f8a870 100%);
+  --gradient-data: linear-gradient(135deg, #82c4f0 0%, #f5d060 100%);
+  --gradient-soft: linear-gradient(135deg, #c8edd0 0%, #fad4d4 50%, #e0d4ff 100%);
+
+  /* ── Glass Recipe ── */
+  --glass-blur: blur(20px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 4px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  /* ── Semantic Aliases ── */
+  --color-primary: var(--color-sage);
+  --color-primary-lt: var(--color-sage-light);
+  --color-danger: var(--color-blush);
+  --color-danger-lt: var(--color-blush-light);
+  --color-info: var(--color-sky);
+  --color-info-lt: var(--color-sky-light);
+  --color-warning: var(--color-butter);
+  --color-warning-lt: var(--color-butter-light);
+  --color-accent: var(--color-lavender);
+  --color-accent-lt: var(--color-lavender-light);
+  --color-highlight: var(--color-peach);
+  --color-highlight-lt: var(--color-peach-light);
+}
+
+/* ─────────────────────────────────────────────
+   2. GLASS UTILITY CLASSES
+   ───────────────────────────────────────────── */
+
+/* Base glass */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Tinted glass variants */
+.glass-sage {
+  background: rgba(143, 201, 154, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 24px rgba(143, 201, 154, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-blush {
+  background: rgba(240, 160, 160, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 24px rgba(240, 160, 160, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-sky {
+  background: rgba(130, 196, 240, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 24px rgba(130, 196, 240, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-lavender {
+  background: rgba(184, 164, 232, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 24px rgba(184, 164, 232, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-butter {
+  background: rgba(245, 208, 96, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 24px rgba(245, 208, 96, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ─────────────────────────────────────────────
+   3. BACKGROUND UTILITY
+   ───────────────────────────────────────────── */
+.bg-canvas {
+  background: linear-gradient(
+    140deg,
+    #ffffff 0%,
+    #f0faf2 20%,
+    #fff0f5 40%,
+    #eef5ff 60%,
+    #fefae8 80%,
+    #f5eeff 100%
+  );
+  background-attachment: fixed;
+}
+
+/* ─────────────────────────────────────────────
+   4. BUTTON COLOR VARIANTS
+   ───────────────────────────────────────────── */
+.btn-sage {
+  background: var(--color-sage);
+  color: #1a4024;
+  box-shadow: 0 4px 16px rgba(143, 201, 154, 0.55);
+}
+.btn-sage:hover {
+  background: var(--color-sage-dark);
+  box-shadow: 0 6px 20px rgba(143, 201, 154, 0.65);
+}
+
+.btn-blush {
+  background: var(--color-blush);
+  color: #5a0a0a;
+  box-shadow: 0 4px 16px rgba(240, 160, 160, 0.5);
+}
+.btn-blush:hover {
+  background: var(--color-blush-dark);
+  box-shadow: 0 6px 20px rgba(240, 160, 160, 0.6);
+}
+
+.btn-sky {
+  background: var(--color-sky);
+  color: #0a2a4a;
+  box-shadow: 0 4px 16px rgba(130, 196, 240, 0.5);
+}
+.btn-sky:hover {
+  background: var(--color-sky-dark);
+  box-shadow: 0 6px 20px rgba(130, 196, 240, 0.6);
+}
+
+.btn-butter {
+  background: var(--color-butter);
+  color: #4a3000;
+  box-shadow: 0 4px 16px rgba(245, 208, 96, 0.5);
+}
+.btn-butter:hover {
+  background: var(--color-butter-dark);
+  box-shadow: 0 6px 20px rgba(245, 208, 96, 0.6);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-primary);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ─────────────────────────────────────────────
+   5. TAG / BADGE VARIANTS
+   ───────────────────────────────────────────── */
+.tag-sage {
+  background: var(--color-sage-light);
+  color: #1a5028;
+}
+.tag-blush {
+  background: var(--color-blush-light);
+  color: #7a1414;
+}
+.tag-sky {
+  background: var(--color-sky-light);
+  color: #0a2a5a;
+}
+.tag-butter {
+  background: var(--color-butter-light);
+  color: #5a3800;
+}
+.tag-lavender {
+  background: var(--color-lavender-light);
+  color: #38206a;
+}
+.tag-peach {
+  background: var(--color-peach-light);
+  color: #6a2800;
+}
